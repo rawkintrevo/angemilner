@@ -21,7 +21,7 @@ The Ghost of Ange Milner sets up a library of your API keys using MongoDB.  Then
       include_package_data=True,
       zip_safe=True,
       install_requires=[
-          "pymongo"
+          "pymongo>=2.7.2"
       ],
       entry_points="""
       # -*- Entry points: -*-
