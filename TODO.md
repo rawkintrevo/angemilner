@@ -6,3 +6,4 @@
 - [x] Write useage docs
 - [ ] Make some methods to access and display useage statistics on your keys
 - [ ] Make method for updating key values (specifically rate limits) 
+- [ ] make pep8 compliant
