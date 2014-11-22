@@ -1,8 +1,8 @@
 import requests
-from key_librarian import APIKeyLibrarian
+from angemilner import APIKeyLibrarian
 
 l= APIKeyLibrarian()
-
+PROVIDER = 'twitter_search'
 
 ## Rate limits on Twitter Search API
 ## https://dev.twitter.com/rest/reference/get/search/tweets 
@@ -10,7 +10,7 @@ REQUEST_PER_15_MIN = 180
 DAILY_LIMIT = 24 * 60 / 15 * REQUEST_PER_15_MIN
 S_BETWEEN_REQUESTS = float(REQUEST_PER_15_MIN) / (15 * 60) 
 
-PROVIDER = 'twitter_search'
+
 
 # Create an app at https://apps.twitter.com/
 key = { 'api_key'		: 'XXX',

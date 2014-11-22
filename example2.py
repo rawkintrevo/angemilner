@@ -26,10 +26,10 @@ location = '41.9075,-87.6769' # Wicker Park
 for q in keywords:
 	url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json'
 	key = l.check_out_api_key(PROVIDER)['key']
-	payload = { 'key' 		: key,
+	payload = {	'key' 		: key,
 				'location'	: location, 
 				'radius'	: 1000, 
-				'name'		: 'pizza',
+				'name'		: q,
 				'types'		: 'restaurant' }
 	r = requests.get(url, params= payload) 
 	print key	
