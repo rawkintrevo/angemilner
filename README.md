@@ -31,6 +31,7 @@ For those who know a little Mongo...
 
 All that is going on here is a database (by default named 'api_keys') is created.  Each service has it's own collection.  In that collection each API key is a document, with additional fields containing information such as when the key was last used and how many time the key has been used today.  When you check out a key, it does a little Mongo aggregation to return a key that A) hasn't hit its daily rate limit and B) of has had the most time since it was last used. 
 
+If no key is available, it finds the key that will be available next and sleeps until that key is available. That makes API scraping a nice 'fire and forget' process. 
 
 
 
