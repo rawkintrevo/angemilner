@@ -22,6 +22,10 @@ Pip is the way to install angemilner.  Just give it the 'ol
 pip install angemilner
 ```
 
+Examples
+--------
+example2.py is a more straight forward useage.  Often API Keys are simply strings.  In the case of Oauth, like twitter uses, we have to store a dictionary of 4 values.  It is worth noting that the 'key' stored can be any object which can be encoded into mongo.
+
 Dependencies
 -------------
 This package requires pymongo, datetime, and time
