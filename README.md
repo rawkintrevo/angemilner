@@ -34,4 +34,7 @@ All that is going on here is a database (by default named 'api_keys') is created
 If no key is available, it finds the key that will be available next and sleeps until that key is available. That makes API scraping a nice 'fire and forget' process. 
 
 
+PyPi
+----
+https://pypi.python.org/pypi/angemilner
 
