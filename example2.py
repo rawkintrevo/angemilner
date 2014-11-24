@@ -19,6 +19,8 @@ S_BETWEEN_REQUESTS = 0.1 # Technically no limit
 for key in google_keys:
 	l.new_api_key(key, PROVIDER, DAILY_LIMIT, S_BETWEEN_REQUESTS )
 
+from pprint import pprint
+pprint(l.summary())
 
 keywords = ['pizza', 'chinese', 'sandwiches', 'beer' ]
 location = '41.9075,-87.6769' # Wicker Park
@@ -34,3 +36,6 @@ for q in keywords:
 	r = requests.get(url, params= payload) 
 	print key	
 	print len(r.json()['results'])
+
+pprint(l.summary())
+
