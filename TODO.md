@@ -6,4 +6,4 @@
 - [ ] make pep8 compliant
 - [ ] make cool logo. some sort of ghost?
 - [ ] port useage docs to pypi. no one will ever look in the wiki here. 
-- 
+
