@@ -33,6 +33,7 @@ class APIKeyLibrarian:
 				{ '$sort':  { 's_until_next_use': 1 } },
 				{ '$limit': 1 }
 		])
+		r = list(r) # In < 3.0 this is redundent, but in > 3.0 is nessecary
 		if len(r['result']) > 0:
 			s= r['result'][0]['s_until_next_use']
 			if s > 0: sleep(s)
