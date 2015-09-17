@@ -23,7 +23,7 @@ class APIKeyLibrarian:
 
 	def check_out_api_key(self, provider):
 		col= self.db[provider]
-		r = col.aggregate([
+		cur = col.aggregate([
 				{ '$project': { 'uses_remaining': { '$subtract': ['$max_uses_per_day', '$uses_today'] } , 's_between_use':1, 'last_used':1 } },
 				{ '$match' : { 'uses_remaining': { '$gt': 0 }} }, 
 				{ '$project': {'ms_bw_use': { '$multiply' : [ '$s_between_use', 1000 ] } , 'last_used':1 } },
@@ -33,11 +33,12 @@ class APIKeyLibrarian:
 				{ '$sort':  { 's_until_next_use': 1 } },
 				{ '$limit': 1 }
 		])
-		r = list(r) # In < 3.0 this is redundent, but in > 3.0 is nessecary
-		if len(r['result']) > 0:
-			s= r['result'][0]['s_until_next_use']
+
+		r = [i for i in cur] # In < 3.0 this is redundent, but in > 3.0 is nessecary
+		if len(r) > 0:
+			s= r[0]['s_until_next_use']
 			if s > 0: sleep(s)
-			loaner_api_key= col.find_one({'_id': r['result'][0]['_id']})['key']
+			loaner_api_key= col.find_one({'_id': r[0]['_id']})['key']
 			self.use_api_key(provider, loaner_api_key)
 			return {'key': loaner_api_key}
 		else: 
