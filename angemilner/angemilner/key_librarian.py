@@ -49,14 +49,21 @@ class APIKeyLibrarian:
 		self.reset_key(provider, key)
 		silent = col.update({'key':key}, {'$inc': { 'uses_today': 1 }, '$set': { 'last_used': datetime.now() } })
 
-	def reset_key(self, provider, key):
+	def reset_key(self, provider, key, hard_reset=False):
 		# TODO clean this up. Use mongo like init does. 
 		col= self.db[provider]
 		doc = col.find_one({'key':key})
+		if hard_reset:
+			doc['last_used'] = datetime.now()
 		if (datetime.now() - doc['last_used']) > timedelta(days=1):
 			doc['uses_today'] = 0
 			col.save(doc)
 
+	def reset_provider(self, provider, hard_reset=False)
+		col= self.db[provider]
+		for doc in col.find():
+			self.reset_key(provider, doc['key'], hard_reset)
+	
 	def set_value(self, provider, api_key, values):
 		col= self.db[provider]
 		doc= col.find_one({'key': api_key})
