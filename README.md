@@ -1,4 +1,5 @@
-![An image of Ange Milner made with DALL-E-2)(ange.png)
+
+![An image of Ange Milner made with DALL-E-2](ange.png)
 
 # DEPRECATED
 
