@@ -1,3 +1,9 @@
+![An image of Ange Milner made with DALL-E-2)(ange.png)
+
+# DEPRECATED
+
+I'm just stopping in to add this message, and add an image I made with DALL-E-2. I can't even be bothered to change the cringy branch name. I'm doing that to let marginalized groups know that they like everyone else in the world, are not welcome to contribute. If you're reading this- that means you.
+
 angemilner
 =================
 
